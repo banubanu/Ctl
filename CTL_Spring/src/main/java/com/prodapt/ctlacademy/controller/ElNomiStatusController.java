@@ -56,13 +56,22 @@ import com.prodapt.ctlacademy.service.ElNomiService;
 //			return elCourseContentService.save(elcc);
 //		}
 		
+//		@GetMapping("get")
+//		public List<ElNomination> getAll() {
+//			 
+//			return this.elNomiRepository.findAll();
+//
+//		}
+//		
 		@GetMapping("get")
-		public List<ElNomination> getAll() {
-			 
-			return this.elNomiRepository.findAll();
-
+		public List<ElNomination> getDetails(@RequestParam String status)
+		{  
+	        Query query = entityManager.createNativeQuery(
+		   "SELECT * from ctlacademy.el_nomi  where el_nom_status='"+status+"'",ElNomination.class);
+		         
+		         List<ElNomination> nomi = query.getResultList(); 
+		         return  nomi; 
 		}
-		
 		@PostMapping("validateUsersForNomination")
 		public Boolean validateUser(@RequestBody ElNomination r) {
 			ElNomination user=elNomiRepository.findByElNomEmpIdAndElNomCourseId(r.getElNomEmpId(),r.getElNomCourseId());

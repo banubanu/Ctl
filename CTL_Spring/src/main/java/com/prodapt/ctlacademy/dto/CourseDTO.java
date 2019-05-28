@@ -9,19 +9,15 @@ public class CourseDTO {
 		private String trainer ;
 		private String courseImage;
 		private String courseContent;
-		
+		private String answers;
+		private String surveyLink;
+		private int duration;
 		public String getCourseName() {
 			return courseName;
 		}
 		public void setCourseName(String courseName) {
 			this.courseName = courseName;
 		}
-//		public String getContentType() {
-//			return contentType;
-//		}
-//		public void setContentType(String contentType) {
-//			this.contentType = contentType;
-//		}
 		public String getDomainName() {
 			return domainName;
 		}
@@ -52,6 +48,25 @@ public class CourseDTO {
 		public void setCourseContent(String courseContent) {
 			this.courseContent = courseContent;
 		}
+		public String getAnswers() {
+			return answers;
+		}
+		public void setAnswers(String answers) {
+			this.answers = answers;
+		}
+		public String getSurveyLink() {
+			return surveyLink;
+		}
+		public void setSurveyLink(String surveyLink) {
+			this.surveyLink = surveyLink;
+		}
+		public int getDuration() {
+			return duration;
+		}
+		public void setDuration(int duration) {
+			this.duration = duration;
+		}
+	
 		
 		
 }

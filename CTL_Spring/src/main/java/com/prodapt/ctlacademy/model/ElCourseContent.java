@@ -38,13 +38,21 @@ public class ElCourseContent {
     @Column(name="el_submitted_date")
   	private String elSubmitedDate;
     
-  
     @Column(name="el_course_img")
   	private String elCourseImage;
     
     @Column(name="el_content")
   	private String elCourseContent;
+
+    @Column(name="el_survey_feedback_link")
+  	private String elSurveyLink;
     
+    @Column(name="el_duration")
+  	private int elDuration;
+    
+    @Column(name="el_assesment_correct_answers")
+  	private String elAnswers;
+
 	public int getId() {
 		return id;
 	}
@@ -61,7 +69,6 @@ public class ElCourseContent {
 		this.elContentType = elContentType;
 	}
 
-	
 	public String getElDomainName() {
 		return elDomainName;
 	}
@@ -102,7 +109,6 @@ public class ElCourseContent {
 		this.elSubmitedDate = elSubmitedDate;
 	}
 
-
 	public String getElCourseImage() {
 		return elCourseImage;
 	}
@@ -118,6 +124,29 @@ public class ElCourseContent {
 	public void setElCourseContent(String elCourseContent) {
 		this.elCourseContent = elCourseContent;
 	}
-    
+
+	public String getElSurveyLink() {
+		return elSurveyLink;
+	}
+
+	public void setElSurveyLink(String elSurveyLink) {
+		this.elSurveyLink = elSurveyLink;
+	}
+
+	public int getElDuration() {
+		return elDuration;
+	}
+
+	public void setElDuration(int elDuration) {
+		this.elDuration = elDuration;
+	}
+
+	public String getElAnswers() {
+		return elAnswers;
+	}
+
+	public void setElAnswers(String elAnswers) {
+		this.elAnswers = elAnswers;
+	}
     
 }

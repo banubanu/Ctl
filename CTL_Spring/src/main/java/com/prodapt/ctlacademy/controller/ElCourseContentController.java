@@ -148,6 +148,9 @@ public class ElCourseContentController {
 	        	content.setElCourseName( course.getCourseName());
 	        	content.setElCourseDesc(course.getCourseDesc());
 	        	content.setElTrainer(course.getTrainer());
+	        	content.setElDuration(course.getDuration());
+	        	content.setElSurveyLink(course.getSurveyLink());
+	        	content.setElAnswers(course.getAnswers());
 	        	content.setElCourseContent(pages);
 	        	content.setElSubmitedDate(new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
 	        	elCourseService.save(content);
@@ -160,9 +163,6 @@ public class ElCourseContentController {
 		  
 		return new ResponseEntity<>("File converted Successfully",HttpStatus.OK) ;
 	}
-	
-	
-	
 	
 	
 	
