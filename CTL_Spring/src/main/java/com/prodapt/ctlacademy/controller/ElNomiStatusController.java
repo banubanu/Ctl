@@ -101,6 +101,11 @@ import com.prodapt.ctlacademy.service.ElNomiService;
 		         return  statuschange;
 		}
 		
+		@GetMapping("Count")
+        public List<Object[]> getcount(){
+             return elNomiRepository.findCount();
+      
+        }
 
 		}
 

@@ -132,7 +132,7 @@ public class ElUserDetailsController {
 	      
          RestTemplate rt=new RestTemplate();
          String output = rt.getForObject("http://192.168.51.25:8085/user/content?code="+code+"&id="+id, String.class);
-	         
+//         String output = rt.getForObject("http://localhost:8080/user/content?code="+code+"&id="+id, String.class);
 	     System.out.println("***** OUTPUT PREV *****" + output);
          System.out.println();
          return  output; 	
@@ -166,6 +166,7 @@ public class ElUserDetailsController {
 
          RestTemplate rtnew=new RestTemplate();
 	     String outputnext = rtnew.getForObject("http://192.168.51.25:8085/user/content?code="+code+"&id="+id, String.class);
+//	     String outputnext = rtnew.getForObject("http://localhost:8080/user/content?code="+code+"&id="+id, String.class);
          System.out.println("***** OUTPUT NEXT *****" + outputnext);
          System.out.println();
 	         return  outputnext; 	
@@ -208,5 +209,13 @@ public class ElUserDetailsController {
 			
 			
    	}
+
+    	
+        @GetMapping("Count")
+        public List<Object[]> getcount(@RequestParam int id){
+           return elUserDetailsRepository.findCount(id);
+     
+     
+        }
 
 }
