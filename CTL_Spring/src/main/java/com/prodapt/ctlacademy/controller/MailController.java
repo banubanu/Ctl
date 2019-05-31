@@ -1,6 +1,7 @@
 package com.prodapt.ctlacademy.controller;
 
 import javax.mail.MessagingException;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,12 +35,14 @@ public class MailController {
                 SimpleMailMessage message =new SimpleMailMessage();
 //        MimeMessage message = sender.createMimeMessage();
 //        MimeMessageHelper helper = new MimeMessageHelper(message);
-
+                          
+//                String toAddress;
+//				InternetAddress[] toAddresses = { new InternetAddress(toAddress) };
                 				message.setTo(elNomination.getElNomEmpMail(),"vaishnavi.s@prodapt.com");
-                                message.setSubject("Approval Request");
+                                message.setSubject("Recommendation for taking a course");
                                 message.setFrom("vaishnavi.s@prodapt.com");
 //                                message.setCc(elNomination.getElRmEmail());
-                                message.setText("Hi "+elNomination.getElNomEmpName()+",\r\n admin has recommended you to take "+elNomination.getElNomCourse()+" course");   
+                                message.setText("Hi "+elNomination.getElNomEmpName()+",\r\n Admin has recommended you to take "+elNomination.getElNomCourse()+" course \r\n Regards, \r\n CTL Academy Support Team");   
                                 sender.send(message);     
                                 return "Mail Sent Success!";
     }
