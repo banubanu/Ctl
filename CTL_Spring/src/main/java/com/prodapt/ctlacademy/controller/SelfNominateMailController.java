@@ -55,7 +55,7 @@ public class SelfNominateMailController {
                 message.setSubject("Approval");
                 message.setFrom("vaishnavi.s@prodapt.com");
 //                message.setCc(elNomination.getElRmEmail());
-                message.setText("Hi "+elNomination.getElNomEmpName()+" , \r\n Admin has approved your request for taking "+elNomination.getElNomCourse()+" course  \r\n Regards, \r\n CTL Academy Support Team");   
+                message.setText("Hi "+elNomination.getElNomEmpName()+" , \r\n Admin has  " +elNomination.getElNomStatus()+" your request for taking "+elNomination.getElNomCourse()+" course "+ "\r\n " + "Regards, "+ "\r\n" +"CTL Academy Support Team");   
                 sender.send(message);     
                 return "Mail Sent Success!";
 }

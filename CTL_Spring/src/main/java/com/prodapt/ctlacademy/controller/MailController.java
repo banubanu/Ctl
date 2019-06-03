@@ -42,7 +42,7 @@ public class MailController {
                                 message.setSubject("Recommendation for taking a course");
                                 message.setFrom("vaishnavi.s@prodapt.com");
 //                                message.setCc(elNomination.getElRmEmail());
-                                message.setText("Hi "+elNomination.getElNomEmpName()+",\r\n Admin has recommended you to take "+elNomination.getElNomCourse()+" course \r\n Regards, \r\n CTL Academy Support Team");   
+                                message.setText("Hi "+elNomination.getElNomEmpName()+",\r\n Admin has recommended you to take "+elNomination.getElNomCourse()+" course . \r\n Regards, \r\n CTL Academy Support Team");   
                                 sender.send(message);     
                                 return "Mail Sent Success!";
     }
