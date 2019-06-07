@@ -190,6 +190,14 @@ public class ElCourseContentController {
 	}
 	 
 	 
+	  @GetMapping("CourseCount")
+      public List<Object[]> getcount(){
+         return elCourseContentRepository.findCount();
+   
+   
+      }
+
+	 
 	 
 
 

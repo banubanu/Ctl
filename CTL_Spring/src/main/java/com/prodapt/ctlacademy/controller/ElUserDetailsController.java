@@ -93,14 +93,17 @@ public class ElUserDetailsController {
 	         if(content==0) 
 	         {
 	         map.put("isFirstSlide", Boolean.TRUE.toString());
+	         map.put("number",content.toString());
 	         }
 	         
 	         if((content+1) == contentArray.length)
 	         {
 	       	 map.put("isLastSlide", Boolean.TRUE.toString());
+	       	 map.put("number",content.toString());
 	         }
 	         
              map.put("slide", contentArray[content]);
+             map.put("number",content.toString());
 	         System.out.println("***** CONTENT *****: " + content); 
 	         System.out.println();
 	         
