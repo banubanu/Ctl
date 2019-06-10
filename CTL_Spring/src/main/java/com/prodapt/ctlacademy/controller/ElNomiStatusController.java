@@ -96,7 +96,7 @@ import com.prodapt.ctlacademy.service.ElNomiService;
 		@RequestMapping("StatusChange")
 		public int ElNomination(@RequestBody ElNomination elNomination) {  
 		    Query query = entityManager.createNativeQuery(
-		    		   "UPDATE `el_nomi` SET `el_nom_status` = '" + elNomination.getElNomStatus() + "'  WHERE el_nom_course_id= '" + elNomination.getElNomCourseId()+ "'",  ElNomination.class);
+		    		   "UPDATE `el_nomi` SET `el_nom_status` = '" + elNomination.getElNomStatus() + "'  WHERE el_nom_course_id= '" + elNomination.getElNomCourseId()+ "'and el_emp_id= '"+elNomination.getElNomEmpId()+"'",  ElNomination.class);
 		         int statuschange = query.executeUpdate(); 
 		         return  statuschange;
 		}
