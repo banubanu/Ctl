@@ -48,7 +48,19 @@ public class MailController {
     }
                
                 
-                
+        
+            	@PostMapping("/courseCompMail")
+        	    public String sendMail(@RequestBody ElNomination elNomination)  throws MessagingException{
+        	                SimpleMailMessage message =new SimpleMailMessage();
+
+        	                message.setTo(elNomination.getElNomEmpMail(),"vaishnavi.s@prodapt.com");
+        	                message.setSubject("Course Completion");
+        	                message.setFrom("vaishnavi.s@prodapt.com");
+        	                message.setText("Hi, you have successfully completed the "+ elNomination.getElNomCourse()+" course ");
+        	                sender.send(message);     
+        	                return "Mail Sent Success!";
+        	}
+        	                  
             
 }
 

@@ -16,6 +16,7 @@ import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -96,9 +98,15 @@ public class ElCourseContentController {
 		fout.write(file.getBytes());
 		 System.out.println(file);
 		fout.close();
-
+ 
 		return new ResponseEntity<>("File uploaded Successfully",HttpStatus.OK) ;
 	} 
+	
+	@GetMapping(value = "/videosrc", produces = "video/mp4")
+	@ResponseBody
+	public FileSystemResource videoSource(@RequestParam(value="id", required=true) int id) {
+	    return new FileSystemResource(new File("path to mp4 file"));
+	}
 
 	@RequestMapping(value="/uploads1",method=RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity<Object> uploadFile1(@RequestParam("file1") MultipartFile file1 ,@RequestParam("file") MultipartFile file, @RequestPart(required = false) Map<String, String> json, CourseDTO course) throws IOException{
@@ -173,22 +181,9 @@ public class ElCourseContentController {
 	@RequestMapping(value = "/get-details", method = RequestMethod.GET)
 	public List<ElCourseContent> getUsers() {
 	       return this.elCourseService.getAll();
-	}
+	} 
 	
 	
-	
-	 @PostMapping("/courseCompMail")
-	    public String sendMailStartMethod(@RequestBody ElCourseContent elCourseContent)  throws MessagingException{
-	                SimpleMailMessage message =new SimpleMailMessage();
-
-	                message.setTo("vaishnavi.s@prodapt.com");
-	                message.setSubject("Course Completion");
-	                message.setFrom("vaishnavi.s@prodapt.com");
-	                message.setText("Hi, you have successfully completed the course ");
-	                sender.send(message);     
-	                return "Mail Sent Success!";
-	}
-	 
 	 
 	  @GetMapping("CourseCount")
       public List<Object[]> getcount(){
